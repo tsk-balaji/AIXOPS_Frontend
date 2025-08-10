@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import ChatTable from './ChatTable';
 import ChatJson from './ChatJson';
+import botLogo from '../assets/AIXOPS_Logo.png';
 
 export default function ChatMessage({ msg }) {
     const [isOutputExpanded, setIsOutputExpanded] = useState(false);
@@ -47,18 +48,22 @@ export default function ChatMessage({ msg }) {
     }
 
     return (
-        <div className={`p-3 rounded mb-2 ${msg.sender === 'user' ? 'bg-primary text-white ml-auto rounded-br-0' : 'bg-light-gray text-dark mr-auto rounded-bl-0'}`} style={{ maxWidth: '75%' }}>
-
-            {msg.content.text && <p className="mb-2">{msg.content.text}</p>}
-
-            {msg.content.type === 'text' && msg.sender === 'user' && (
-                <p className="mb-0">{msg.content.data}</p>
+        <div className={`aixops-message-bubble ${msg.sender === 'user' ? 'user' : 'bot'}`}>
+            {msg.content.text === 'Thinking...' && msg.sender === 'bot' && (
+                <img
+                    src={botLogo}
+                    alt="Bot Logo"
+                    className="rounded-circle me-2"
+                    style={{ width: '24px', height: '24px', objectFit: 'cover', display: 'inline-block', verticalAlign: 'middle' }}
+                />
             )}
-
+            {msg.content.text && <span>{msg.content.text}</span>}
+            {msg.content.type === 'text' && msg.sender === 'user' && (
+                <span>{msg.content.data}</span>
+            )}
             {msg.content.data?.table_result && (
                 <ChatTable data={msg.content.data.table_result} />
             )}
-
             {msg.content.data?.json_result && (
                 <ChatJson data={msg.content.data.json_result} />
             )}

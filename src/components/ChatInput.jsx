@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function ChatInput({ input, setInput, handleSendMessage }) {
     return (
-        <div className="aixops-input-container" style={{ padding: '50px 0 50px 0', borderRadius: '8px' }}>
+        <div className="aixops-input-container" style={{ padding: '10px 0 10px 0', borderRadius: '8px' }}>
             <form onSubmit={handleSendMessage} className="d-flex w-100 align-items-center aixops-input-box">
                 <input
                     type="text"

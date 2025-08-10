@@ -1,7 +1,16 @@
+:root {
+    --royal-blue: #4169E1;
+    --light-gray: #f8f9fa;
+    --dark-gray: #f1f0f0;
+    --shadow: rgba(0, 0, 0, 0.1);
+}
+
 .sidebar {
     transition: width 0.3s ease-in-out;
     overflow: hidden;
     white-space: nowrap;
+    position: relative;
+    /* Add this to make the footer position relative */
 }
 
 .sidebar-closed {
@@ -45,7 +54,7 @@
 }
 
 .aixops-message .message-content {
-    background-color: transparent;
+    background: transparent;
     border-radius: 0;
     padding: 0;
 }
@@ -56,7 +65,7 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    background-color: #f8f9fa;
+    background: var(--light-gray);
     padding: 1rem;
     z-index: 10;
 }
@@ -64,15 +73,15 @@
 .aixops-input-box {
     width: 100%;
     max-width: 800px;
-    background-color: white;
+    background: #fff;
     border-radius: 25px;
     padding: 0.5rem 1.5rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px var(--shadow);
 }
 
 .aixops-input-box input {
     border: none;
-    background-color: transparent;
+    background: transparent;
     flex: 1;
     height: 40px;
 }
@@ -82,6 +91,89 @@
 }
 
 .aixops-message-bubble {
-    justify-content: center;
-    align-content: center;
+    border-radius: 12px;
+    padding: 10px 14px;
+    margin: 4px 0;
+    word-wrap: break-word;
+    font-size: 15px;
+    line-height: 1.4;
+    display: inline-block;
+    max-width: 75%;
+    white-space: pre-wrap;
+}
+
+.aixops-message-bubble.bot {
+    background: var(--dark-gray);
+    color: #333;
+}
+
+.aixops-message-bubble.user {
+    background: var(--royal-blue);
+    color: white;
+}
+
+.aixops-message-bubble.user,
+.aixops-message-bubble.bot {
+    box-shadow: 0 1px 2px var(--shadow);
+}
+
+.chat-messages-container {
+    width: 100%;
+}
+
+.aixops-chat-json {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.code-container {
+    position: relative;
+}
+
+.copy-button-container {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 1;
+}
+
+.copy-button {
+    padding: 0.25rem 0.5rem;
+    border-radius: 5px;
+    line-height: 1;
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: #fff;
+}
+
+.copy-button:hover {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+/* New styles for footer and improved UI */
+.sidebar-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem;
+    background-color: #fff;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.sidebar-footer-button {
+    width: 100%;
+}
+
+.list-group-item-action:hover,
+.list-group-item-action:focus {
+    background-color: var(--light-gray);
+    color: var(--royal-blue);
+}
+
+.btn-light {
+    color: #333;
+    background-color: var(--light-gray);
+    border-color: var(--light-gray);
 }

@@ -60,12 +60,7 @@ export default function ChatTable({ data }) {
     };
 
     return (
-        <div className="aixops-chat-table">
-            <div className="d-flex justify-content-end mb-2">
-                <button className="btn btn-sm btn-outline-secondary" onClick={handleDownloadCsv}>
-                    <i className="fas fa-download mr-1"></i> Download CSV
-                </button>
-            </div>
+        <div className="aixops-chat-table mt-5">
             <table className="table table-bordered table-striped">
                 <thead>
                     <tr>
@@ -94,6 +89,11 @@ export default function ChatTable({ data }) {
                     ))}
                 </tbody>
             </table>
+            <div className="d-flex justify-content-end mb-2">
+                <button className="btn btn-sm btn-outline-secondary" onClick={handleDownloadCsv}>
+                    <i className="fas fa-download mr-1"></i> Download CSV
+                </button>
+            </div>
         </div>
     );
 }

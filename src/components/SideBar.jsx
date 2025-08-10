@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 
-export default function Sidebar({ isSidebarOpen, handleNewChat, chatHistory }) {
+export default function Sidebar({ isSidebarOpen, handleNewChat, chatHistory, handleClearHistory }) {
     const [isCategoriesExpanded, setIsCategoriesExpanded] = useState(false);
     const [isHistoryExpanded, setIsHistoryExpanded] = useState(true);
     const chatCategories = ['Carrier Service', 'Exchange Service', 'Fraud Service', 'General Queries'];
 
     return (
         <aside className={`bg-white shadow-lg d-flex flex-column h-100 sidebar ${isSidebarOpen ? 'w-25' : 'sidebar-closed'}`}>
-            <div className="p-3 d-flex flex-column h-100 overflow-auto" style={{ paddingTop: '5rem' }}>
+            <div className="p-3 d-flex flex-column h-100">
                 <button className="btn btn-primary btn-block mb-3" onClick={handleNewChat}>
                     <i className="fas fa-plus mr-2"></i>New Chat
                 </button>
@@ -45,7 +45,7 @@ export default function Sidebar({ isSidebarOpen, handleNewChat, chatHistory }) {
                         )}
                     </div>
                 </div>
-                <button className="btn btn-danger btn-block mt-4">
+                <button className="btn btn-danger btn-block mt-4" onClick={handleClearHistory}>
                     <i className="fas fa-trash-alt mr-2"></i>Clear All History
                 </button>
             </div>
